@@ -1,0 +1,4 @@
+cron:
+- description: scrape tracked user data
+  url: /tasks/scrape
+  schedule: every 15 minutes
