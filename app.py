@@ -31,7 +31,22 @@ class UserDetails(webapp2.RequestHandler):
 	def get(self, username):
 		template = jinja_environment.get_template('user-data.html')
 
-		template_values = {'follower_data' : Followers.query(Followers.username == username).order(-Followers.when)}
+		follower_data = [f for f in Followers.query(Followers.username == username).order(-Followers.when)]
+
+		followers = [f.followers for f in follower_data]
+
+		follower_change = max_followers = min_followers = 0
+		if len(follower_data) > 1:
+			follower_change = followers[0] - followers[-1]
+			max_followers = max(followers)
+			min_followers = min(followers)
+
+
+		template_values = {'username' : username,
+			'follower_data' : follower_data,
+			'follower_change' : follower_change,
+			'max_followers' : max_followers,
+			'min_followers' : min_followers,}
 
 		self.response.out.write(template.render(template_values))
 

@@ -7,24 +7,30 @@
 	<div class="fluid-row">
 		<div class="col-12">
 
-	<h1>Tracked users</h1>
+			<h1>Data for {{username}}</h1>
 
-	<table>
-	<thead>
-	<tr>
-	<th>Followers</th>
-	<th>When</th>
-	</tr>
-	</thead>
-	<tbody>
-		{% for data in follower_data %}
+			<p>Change in followers: {{follower_change}} (Max/Min {{max_followers}}/{{min_followers}})</p>
+
+		</div>
+
+	<div class="col-12">
+		<table>
+		<thead>
 		<tr>
-			<td>{{data.followers}}</td>
-			<td>{{data.when}}</td>
+		<th>Followers</th>
+		<th>When</th>
 		</tr>
-		{% endfor %}
-	</tbody>
-	</table>
+		</thead>
+		<tbody>
+			{% for data in follower_data %}
+			<tr>
+				<td>{{data.followers}}</td>
+				<td>{{data.when}}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+		</table>
+	</div>
 
 </div>
 </div>
