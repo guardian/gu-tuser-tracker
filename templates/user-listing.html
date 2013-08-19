@@ -1,0 +1,31 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="fluid-wrap">
+	<div class="fluid-row">
+		<div class="col-12">
+
+<h1>Tracked users</h1>
+
+<table>
+<thead>
+<tr>
+<th>Username</th>
+</tr>
+</thead>
+<tbody>
+	{% for user in tracked_users %}
+	<tr>
+	<td><a href="/user/{{user.username}}">{{user.username}}</a></td>
+	</tr>
+	{% endfor %}
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+
+{% endblock %}
