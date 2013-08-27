@@ -10,3 +10,6 @@ def set_cache_headers(response, cache_time):
 
 def json(response):
 	response.headers['Content-Type'] = 'application/javascript'
+
+def csv(response):
+	response.headers['Content-Type'] = 'text/csv'
